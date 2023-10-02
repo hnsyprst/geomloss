@@ -156,7 +156,7 @@ def scaling_parameters(x, y, p, blur, reach, diameter, scaling):
     r"""Turns high-level arguments into numerical values for the Sinkhorn loop."""
     if diameter is None:
         D = x.shape[-1]
-        diameter = max_diameter(x.view(-1, D), y.view(-1, D))
+        diameter = max_diameter(x.reshape(-1, D), y.reshape(-1, D))
 
     eps = blur ** p
     rho = None if reach is None else reach ** p
